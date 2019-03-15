@@ -25,7 +25,7 @@ date:   2019-03-12 23:11:00
 n 항을 알고 있는 경우 n+1 또는 n*2 항은 한 번의 행렬 연산으로 구할 수 있으니
 결국 n 항을 구하는 건 log(n) 정도로 행렬 곱을 산수하면 계산할 수 있다.
 
-```
+```cpp
 typedef vector<long long> matrix;
 matrix operator * (const matrix &a, const matrix &b) {
     matrix c(4);
