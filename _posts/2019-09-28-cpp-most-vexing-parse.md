@@ -56,7 +56,7 @@ t.cpp:8:5: error: base of member reference is a function; perhaps you meant to c
 1 warning and 1 error generated.
 ```
 
-여기서 포인트는 문제를 해결하는 방법이 아니라, 이 컴파일 에러가 vexing parse 문제라는 점을 알라차리는 것이다.
+여기서 포인트는 문제를 해결하는 방법이 아니라, 이 컴파일 에러가 vexing parse 문제라는 점을 알아차리는 것이다.
 
 위 예제와 같이 간단한 기본 생성자 선언에서는 간단히 괄호를 없애기만 해도 문제가 없다.
 
@@ -84,6 +84,20 @@ int main() {
 ```
 [wiki](https://en.wikipedia.org/wiki/Most_vexing_parse) 에서 발췌
 
+해결책은 대략 다음과 같이 요상한 모양으로 코딩하는 것이다.
 
-해결책은 위키를 참조
+```cpp
+// To add an extra pair of parentheses:
+TimeKeeper time_keeper((Timer()));
+
+// To use copy initialization:[1]
+TimeKeeper time_keeper = TimeKeeper(Timer());
+
+// (In C++11 and later.) To use uniform initialization[2][3] with braces:
+TimeKeeper time_keeper{Timer()};
+TimeKeeper time_keeper(Timer{});
+TimeKeeper time_keeper{Timer{}};
+```
+
+위키를 참조
 
