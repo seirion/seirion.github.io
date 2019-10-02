@@ -90,10 +90,10 @@ int main() {
 // To add an extra pair of parentheses:
 TimeKeeper time_keeper((Timer()));
 
-// To use copy initialization:[1]
+// To use copy initialization:
 TimeKeeper time_keeper = TimeKeeper(Timer());
 
-// (In C++11 and later.) To use uniform initialization[2][3] with braces:
+// (In C++11 and later.) To use uniform initialization with braces:
 TimeKeeper time_keeper{Timer()};
 TimeKeeper time_keeper(Timer{});
 TimeKeeper time_keeper{Timer{}};
