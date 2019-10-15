@@ -9,9 +9,8 @@ software engineer
 
 ### AREAS OF INTEREST
 * solving algorithmic problems 
-* object oriented programming and oo languages 
-* methodology of software development
+* rx, functional programming
 * parallel universes
 
 ### SKILL
-programming language: c/c++, java, python
+programming language: c/c++, kotlin, java, python
