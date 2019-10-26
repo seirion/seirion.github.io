@@ -51,7 +51,9 @@ JNA 에서는 [com.sun.jna.ptr package](https://github.com/java-native-access/jn
 `write()` 메소드를 이용하여 데이터를 복사한다.
 
 ```java
-    public void getSomeBinary(String id, PointerByReference recordValue, IntByReference recordValueLen) {
+    public void getSomeBinary(String id,
+                              PointerByReference recordValue,
+                              IntByReference recordValueLen) {
         byte[] bytes = getByteDataOf(id); // 보낼 데이터 
         int byteLen = bytes.length;
         Pointer ptr = new Memory(byteLen);
