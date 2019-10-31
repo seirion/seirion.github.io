@@ -86,8 +86,9 @@ ed ≡ 1 + h φ(n), h 는 음이 아닌 정수
 ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/7d7e379ba0635438a23bf9cc46cbe07080b94113)
 
 
+---
 
-* 참고 : 오일러의 정리 요약
+### 참고 : 오일러의 정리 요약
 
 양의 정수 𝑛과 정수 𝑎에 관해, gcd(𝑎,𝑛)=1이면 다음이 성립
 ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/2e818f3f88d3e71e569f171dd86f31e1903fdc55)
