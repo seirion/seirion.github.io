@@ -65,3 +65,7 @@ JNA 에서는 [com.sun.jna.ptr package](https://github.com/java-native-access/jn
 
 
 ## 기타
+
+데이터 전달을 위한 자세한 설명
+
+http://java-native-access.github.io/jna/5.5.0/javadoc/overview-summary.html
