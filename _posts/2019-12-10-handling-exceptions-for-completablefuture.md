@@ -13,6 +13,7 @@ date:   2019-12-10 22:01:00
 예외는 기본적으로 [`exceptionally()`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html#exceptionally-java.util.function.Function-) 에서 처리한다.
 
 ```kotlin
+// kotlin
 CompletableFuture
     .supplyAsync<Int> {
         throw NullPointerException("")
@@ -32,6 +33,7 @@ CompletableFuture
 만약 특정 예외만 핸들링하고 나머지는 그대로 예외를 통과 시키고 싶은 경우에는 뭔가 귀찮은 작업을 해야 한다.
 
 ```kotlin
+// kotlin
 CompletableFuture
     .supplyAsync<Int> {
         throw NullPointerException("")
@@ -48,6 +50,7 @@ CompletableFuture
 간단하다. 하지만 이 간단한 것이 자바에서는 안 된다.
 
 ```java
+// java
 CompletableFuture.<Integer>supplyAsync(
     () -> {
         throw new NullPointerException("");
@@ -71,6 +74,7 @@ CompletableFuture.<Integer>supplyAsync(
 
 
 ```java
+// java
 CompletableFuture.<Integer>supplyAsync(
     () -> {
         throw new NullPointerException("");
