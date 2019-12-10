@@ -80,8 +80,7 @@ CompletableFuture.<Integer>supplyAsync(
         if (t.getCause() instanceof NullPointerException) {
             return CompletableFuture.completedFuture(0);
         } else {
-            //return CompletableFuture.failedFuture(t.getCause());
-            return FutureUtils.futureWithException(t.getCause());
+            return CompletableFuture.failedFuture(t.getCause()); // java9
         }
     })
     .thenCompose(a -> a); // CompletableFuture<CompletableFuture<Integer>> -> CompletableFuture<Integer>
