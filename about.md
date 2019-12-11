@@ -4,8 +4,8 @@ title: About
 permalink: /about/
 ---
 
-### 바보님 (babo)
-software engineer
+### babo.neo
+fool stack programmer
 
 ### AREAS OF INTEREST
 * solving algorithmic problems 
