@@ -91,4 +91,9 @@ CompletableFuture.<Integer>supplyAsync(
 ``` 
 
 
+## exceptionallyCompose
+
+java12 에 [`exceptionallyCompose`](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/concurrent/CompletionStage.html#exceptionallyCompose(java.util.function.Function)가 추가되었다. 이걸로 해결 될 듯.
+
+
 결론 : 코틀린을 사용하자.
