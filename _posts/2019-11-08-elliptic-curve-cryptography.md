@@ -48,4 +48,4 @@ a, b 값에 의해 곡선 모양이 결정된다.
 
 직선과 타원이 중근을 갖는 경우 두 점에서 만난다.
 
-3 또느 4번의 경우 두 점의 합의 결과는 무한원점([point at infinity](https://en.wikipedia.org/wiki/Point_at_infinity))으로 정의한다.
+3 또는 4번의 경우 두 점의 합의 결과는 무한원점([point at infinity](https://en.wikipedia.org/wiki/Point_at_infinity))으로 정의한다.
