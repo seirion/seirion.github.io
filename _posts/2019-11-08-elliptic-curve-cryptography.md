@@ -27,3 +27,25 @@ date:   2019-11-08 22:01:00
 비트코인에서 사용하는 곡선
 
 
+## 타원 곡선 상의 점과 연산
+
+(* 이곳의 모든 이미지 출처는 다음 wiki 임)
+https://en.wikipedia.org/wiki/Elliptic_curve
+
+타원 곡선의 일반식은 다음과 같다.
+
+![](https://wikimedia.org/api/rest_v1/media/math/render/svg/3dbe6cab1bc2c7f1c99757dc6e5d7a517cf9b4f8)
+
+a, b 값에 의해 곡선 모양이 결정된다.
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/ECClines-3.svg/335px-ECClines-3.svg.png)
+
+실수체에서는 곡선 상의 두 점 간의 덧셈을 그림과 같이, 두 점을 이은 직선이 만나는 세 번째 점을과의 관계로 정의한다.
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/ECClines.svg/680px-ECClines.svg.png)
+
+타원 공식에 의해 보통 직선은 곡선과 세 점에서 만난다.
+
+직선과 타원이 중근을 갖는 경우 두 점에서 만난다.
+
+3 또느 4번의 경우 두 점의 합의 결과는 무한원점([point at infinity](https://en.wikipedia.org/wiki/Point_at_infinity))으로 정의한다.
