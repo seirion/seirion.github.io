@@ -27,7 +27,7 @@ date:   2019-11-08 22:01:00
 비트코인에서 사용하는 곡선
 
 
-## 타원 곡선 상의 점과 연산
+## 타원 곡선 상의 덧셈 연산 정의
 
 (* 이곳의 모든 이미지 출처는 다음 wiki 임)
 https://en.wikipedia.org/wiki/Elliptic_curve
@@ -49,3 +49,16 @@ a, b 값에 의해 곡선 모양이 결정된다.
 직선과 타원이 중근을 갖는 경우 두 점에서 만난다.
 
 3 또는 4번의 경우 두 점의 합의 결과는 무한원점([point at infinity](https://en.wikipedia.org/wiki/Point_at_infinity))으로 정의한다.
+
+이 무한 원점은 실수체에서 덧셈의 항등원이 된다.
+
+그리고, 그림 3에서 보는 바와 같이, X 축에 대칭인 곡선 상의 점 두 개는 서로 덧셈의 역원이다.
+
+
+
+## 타원 곡선 상의 곱셈 연산 정의
+
+[Elliptic curve point multiplication]()https://en.wikipedia.org/wiki/Elliptic_curve_point_multiplication
+
+덧셈과 항등원 역원 등이 모두 정의되었으므로, 이를 이용하여 곱셈을 정의 할 수 있다.
+
