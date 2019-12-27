@@ -5,7 +5,9 @@ comments: true
 date:   2019-11-08 22:01:00
 ---
 
-## Elliptic-curve cryptography
+타원곡선 암호
+
+타원곡선 이론에 기반한 공개 키 암호 방식이다. 줄여서 ECC라고 쓰기도 한다. (한국어 wiki 에서 발췌)
 
 [wiki](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography)
 
@@ -30,6 +32,7 @@ date:   2019-11-08 22:01:00
 ## 타원 곡선 상의 덧셈 연산 정의
 
 (* 이곳의 모든 이미지 출처는 다음 wiki 임)
+
 https://en.wikipedia.org/wiki/Elliptic_curve
 
 타원 곡선의 일반식은 다음과 같다.
