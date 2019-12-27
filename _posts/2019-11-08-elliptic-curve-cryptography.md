@@ -58,7 +58,7 @@ a, b 값에 의해 곡선 모양이 결정된다.
 
 ## 타원 곡선 상의 곱셈 연산 정의
 
-[Elliptic curve point multiplication]()https://en.wikipedia.org/wiki/Elliptic_curve_point_multiplication
+[Elliptic curve point multiplication](https://en.wikipedia.org/wiki/Elliptic_curve_point_multiplication)
 
 덧셈과 항등원 역원 등이 모두 정의되었으므로, 이를 이용하여 곱셈을 정의 할 수 있다.
 
