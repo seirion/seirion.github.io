@@ -65,3 +65,25 @@ a, b 값에 의해 곡선 모양이 결정된다.
 
 덧셈과 항등원 역원 등이 모두 정의되었으므로, 이를 이용하여 곱셈을 정의 할 수 있다.
 
+
+## ECDSA
+
+커브 연산을 위해 공개하는 기본 값들은 다음과 같다
+
+* curve : a = 0, b = 7
+* base point : G
+    ```
+    Gx = 0x79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798
+    Gy = BigInteger("483ADA7726A3C4655DA4FBFC0E1108A8FD17B448A68554199C47D08FFB10D4B8
+    ```    
+* integer order of G : n
+    ```
+    n = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141
+    ```
+
+### 키 생성
+
+1. secure random 256 비트 값 생성 : ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/d76bb0d6e0b2b8b75f86e29901a2171d31250a39) 이것이 private key
+
+2. ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/6c81e45f784fc836e513c3929331a7c762fa4c87) 이것이 public key
+
