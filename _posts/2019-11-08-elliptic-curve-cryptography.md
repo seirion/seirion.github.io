@@ -87,3 +87,11 @@ a, b 값에 의해 곡선 모양이 결정된다.
 
 2. ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/6c81e45f784fc836e513c3929331a7c762fa4c87) 이것이 public key
 
+
+
+
+### A Survey of the Elliptic Curve Integrated Encryption Scheme
+
+https://www.researchgate.net/publication/255970113_A_Survey_of_the_Elliptic_Curve_Integrated_Encryption_Scheme
+
+https://www.shoup.net/papers/iso-2_1.pdf
