@@ -150,44 +150,36 @@ s = dy/dx = (3x^2 + a) / 2y
 
 ### sign algorithm
 
-
+```
 uG + vP = kG
-
 vP = (k - u)G
-
 P = ((k-u)/v)G
-
+```
 private key `e`를 알고 있으므로, P 를 eG 로 바꾸면
-
+```
 e = (k - u) / v
-
+```
 u 와 v 를 알고 있을 때, private key `e`를 찾아내는 문제는 [이산 로그(discrete logarithm)](https://en.wikipedia.org/wiki/Discrete_logarithm)문제이다.
 
 
 해시 된 메세지 z 을 우리가 싸인 하려 할때,
 
 다음과 같이 z, r 을 u, v 에 포함시킨다.
-
+```
 u = z/s, v = r/s
-
+```
 (r 은 랜덤 생성한 k로 kG 를 계산한 결과의 x 좌표 값, 즉 `(r, y) = kG`)
 
 
-
 #### s 구하기
-
+```
 uG + vP = kG
-
 uG + veG = kG   // P 를 eG 로 치환
-
 u + ve = k      // G 제거
-
 z/s + re/s = k  // u, v 를 z, s, r 에 대한 식으로 변경
-
 (z + re)/s = k
-
 s = (z + re)/k
-
+```
 
 이제 z(메세지), r(kG의 x값), e(private key), k(랜덤값) 을 모두 알게 되었고,
 
