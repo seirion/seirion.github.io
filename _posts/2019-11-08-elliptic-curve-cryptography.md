@@ -183,7 +183,7 @@ s = (z + re)/k
 
 이제 z(메세지), r(kG의 x값), e(private key), k(랜덤값) 을 모두 알게 되었고,
 
-과정이 바로 싸인 과정입니다. 싸인의 결과는 `(r, s)` 입니다.
+과정이 바로 싸인 과정입니다. 싸인의 결과는 `(r, s)` 이다.
 
 
 ```kotlin
@@ -202,6 +202,34 @@ s = (z + re)/k
 
 ### verify algorithm
 
+검증 과정은 public key 를 이용하여 서명으로부터 원래 메세지인 z 를 복원하는 과정이다.
+
+서명 값은 `(r, s)` 이므로
+
+```
+uG + vP = kG        // 이 식에서 시작
+(z/s)G + (r/s)P =   // P 를 eG 로 치환
+(z/s)G + (re/s)G =
+(z/s)G + (re/s)G =
+(z+re)/sG
+```
+여기서 `s = (z + re)/k` 를 대입하면, 
+```
+((z+re)/s)G = kG
+(z+re)/((z+re)/k)G = kG // 여기까지 좌변으로부터 kG 를 구할 수 있다 !
+```
+이렇게 해서, kG 포인트의 x 값이 s 와 일치함을 확인할 수 있다.
+
+```kotlin
+    fun verify(msg: ByteArray, signature: Signature): Boolean {
+        val z = BigInteger(msg)
+        val sInv = FieldElement(signature.s, Secp256k1.n).multiplicativeInverse() // multiplicative inverse of s (s^-1)
+        val u = z * sInv % Secp256k1.n
+        val v = signature.r * sInv % Secp256k1.n
+        val r = (u * Secp256k1.G) + (v * this)
+        return r.x!!.num == signature.r
+    }
+```
 
 ### Elliptic Curve Integrated Encryption Scheme (ECIES)
 
