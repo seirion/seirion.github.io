@@ -90,7 +90,7 @@ a, b 값에 의해 곡선 모양이 결정된다.
 
 
 
-### A Survey of the Elliptic Curve Integrated Encryption Scheme
+### Elliptic Curve Integrated Encryption Scheme (ECIES)
 
 https://www.researchgate.net/publication/255970113_A_Survey_of_the_Elliptic_Curve_Integrated_Encryption_Scheme
 
