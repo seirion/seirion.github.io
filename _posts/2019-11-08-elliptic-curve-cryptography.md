@@ -148,6 +148,67 @@ s = dy/dx = (3x^2 + a) / 2y
 2. ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/6c81e45f784fc836e513c3929331a7c762fa4c87) 이것이 public key
 
 
+### sign algorithm
+
+
+uG + vP = kG
+
+vP = (k - u)G
+
+P = ((k-u)/v)G
+
+private key `e`를 알고 있으므로, P 를 eG 로 바꾸면
+
+e = (k - u) / v
+
+u 와 v 를 알고 있을 때, private key `e`를 찾아내는 문제는 [이산 로그(discrete logarithm)](https://en.wikipedia.org/wiki/Discrete_logarithm)문제이다.
+
+
+해시 된 메세지 z 을 우리가 싸인 하려 할때,
+
+다음과 같이 z, r 을 u, v 에 포함시킨다.
+
+u = z/s, v = r/s
+
+(r 은 랜덤 생성한 k로 kG 를 계산한 결과의 x 좌표 값, 즉 `(r, y) = kG`)
+
+
+
+#### s 구하기
+
+uG + vP = kG
+
+uG + veG = kG   // P 를 eG 로 치환
+
+u + ve = k      // G 제거
+
+z/s + re/s = k  // u, v 를 z, s, r 에 대한 식으로 변경
+
+(z + re)/s = k
+
+s = (z + re)/k
+
+
+이제 z(메세지), r(kG의 x값), e(private key), k(랜덤값) 을 모두 알게 되었고,
+
+과정이 바로 싸인 과정입니다. 싸인의 결과는 `(r, s)` 입니다.
+
+
+```kotlin
+    data class Signature(val r: BigInteger, val s: BigInteger)
+
+    fun sign(msg: ByteArray): Signature {
+        val z = BigInteger(msg)
+        val k = rng()
+        val r = (k * G).x!!.num
+        val kInv = FieldElement(k, n).multiplicativeInverse()
+        var s = (z + r * priKey) * kInv % n
+        if (s > n / BigInteger.valueOf(2)) s = n - s
+        return Signature(r, s)
+    }
+```
+
+### verify algorithm
 
 
 ### Elliptic Curve Integrated Encryption Scheme (ECIES)
