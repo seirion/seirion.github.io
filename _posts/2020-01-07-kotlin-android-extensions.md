@@ -15,7 +15,7 @@ date:   2020-01-07 07:13:00
 
 안드로이드 개발에서 가능 흔한 [boilerplate code](https://en.wikipedia.org/wiki/Boilerplate_code) 는 `findViewById`일 것이다.
 
-그래서 그동안 많은 개발자는 [Butter Knife](https://jakewharton.github.io/butterknife/)류의 [di(dependency injection)](https://en.wikipedia.org/wiki/Dependency_injection) 라이브러리를 많이 사용해 왔다.
+그래서 그동안 많은 개발자는 [Butter Knife](https://jakewharton.github.io/butterknife/)류의 [di(dependency injection)](https://en.wikipedia.org/wiki/Dependency_injection) 라이브러리를 사용해 왔다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
