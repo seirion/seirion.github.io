@@ -82,18 +82,18 @@ y3 = -s(x1 - x3) + y3
 
 
 ```kotlin
-    // y3 는 실제로는 -y3 를 바로 계산한 것이어서 부호가 반대가 됨
-    private fun addDifferentPoints(other: Point): Point {
-        val x1 = x
-        val y1 = y
-        val x2 = other.x
-        val y2 = other.y
+// y3 는 실제로는 -y3 를 바로 계산한 것이어서 부호가 반대가 됨
+private fun addDifferentPoints(other: Point): Point {
+    val x1 = x
+    val y1 = y
+    val x2 = other.x
+    val y2 = other.y
 
-        val s = (y2 - y1) / (x2 - x1) // slop
-        val x3 = s * s - x1 - x2
-        val y3 = s * (x1 - x3) - y1
-        return Point(x3, y3, a, b)
-    }
+    val s = (y2 - y1) / (x2 - x1) // slop
+    val x3 = s * s - x1 - x2
+    val y3 = s * (x1 - x3) - y1
+    return Point(x3, y3, a, b)
+}
 ```
 
 ### point doubling (동일한 두 점의 덧셈)
@@ -107,15 +107,15 @@ s = dy/dx = (3x^2 + a) / 2y
 나머지는 앞서 산수한 방식과 동일하다.
 
 ```kotlin
-    // y3 는 실제로는 -y3 를 바로 계산한 것이어서 부호가 반대가 됨
-    private fun addDifferentPoints(other: Point): Point {
-        val three = BigInteger.valueOf(3)
-        val two = BigInteger.valueOf(2)
-        val s = (x * x * three) / (y * two) // s = (3x^2) / (2y)
-        val x3 = s * s - (x * two)
-        val y3 = s * (x - x3) - y
-        return Point(x3, y3, a, b)
-    }
+// y3 는 실제로는 -y3 를 바로 계산한 것이어서 부호가 반대가 됨
+private fun addDifferentPoints(other: Point): Point {
+    val three = BigInteger.valueOf(3)
+    val two = BigInteger.valueOf(2)
+    val s = (x * x * three) / (y * two) // s = (3x^2) / (2y)
+    val x3 = s * s - (x * two)
+    val y3 = s * (x - x3) - y
+    return Point(x3, y3, a, b)
+}
 ```
 
 
@@ -187,17 +187,17 @@ s = (z + re)/k
 
 
 ```kotlin
-    data class Signature(val r: BigInteger, val s: BigInteger)
+data class Signature(val r: BigInteger, val s: BigInteger)
 
-    fun sign(msg: ByteArray): Signature {
-        val z = BigInteger(msg)
-        val k = rng()
-        val r = (k * G).x!!.num
-        val kInv = FieldElement(k, n).multiplicativeInverse()
-        var s = (z + r * priKey) * kInv % n
-        if (s > n / BigInteger.valueOf(2)) s = n - s
-        return Signature(r, s)
-    }
+fun sign(msg: ByteArray): Signature {
+    val z = BigInteger(msg)
+    val k = rng()
+    val r = (k * G).x!!.num
+    val kInv = FieldElement(k, n).multiplicativeInverse()
+    var s = (z + r * priKey) * kInv % n
+    if (s > n / BigInteger.valueOf(2)) s = n - s
+    return Signature(r, s)
+}
 ```
 
 ### verify algorithm
@@ -221,14 +221,14 @@ uG + vP =           // 이 식에서 시작
 이렇게 해서, kG 포인트의 x 값이 s 와 일치함을 확인할 수 있다.
 
 ```kotlin
-    fun verify(msg: ByteArray, signature: Signature): Boolean {
-        val z = BigInteger(msg)
-        val sInv = FieldElement(signature.s, Secp256k1.n).multiplicativeInverse() // multiplicative inverse of s (s^-1)
-        val u = z * sInv % Secp256k1.n
-        val v = signature.r * sInv % Secp256k1.n
-        val r = (u * Secp256k1.G) + (v * this)
-        return r.x!!.num == signature.r
-    }
+fun verify(msg: ByteArray, signature: Signature): Boolean {
+    val z = BigInteger(msg)
+    val sInv = FieldElement(signature.s, Secp256k1.n).multiplicativeInverse() // multiplicative inverse of s (s^-1)
+    val u = z * sInv % Secp256k1.n
+    val v = signature.r * sInv % Secp256k1.n
+    val r = (u * Secp256k1.G) + (v * this)
+    return r.x!!.num == signature.r
+}
 ```
 
 ### Elliptic Curve Integrated Encryption Scheme (ECIES)
