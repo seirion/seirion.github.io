@@ -6,7 +6,7 @@ date:   2020-01-08 07:13:00
 ---
 
 
-안드로이드에서 `Integer` 타입을 키로하는 `HashMap`을 사용하면, 대신 [`SparseArray`](https://developer.android.com/reference/android/util/SparseArray)를 사용하라는 경고를 준다.
+안드로이드에서 `Integer` 타입을 key 로하는 `HashMap`을 사용하면, [`SparseArray`](https://developer.android.com/reference/android/util/SparseArray)를 대신 사용하라는 경고를 준다.
 
 ![](/images/2020-01-08/01-warnings.png)
 
@@ -15,10 +15,10 @@ date:   2020-01-08 07:13:00
 
 ## SparseArray
 
-[안드로이드 문서](https://developer.android.com/reference/android/util/SparseArray)에는 `SparseArray` 가 메모리를 효율적으로 사용하고
+[안드로이드 문서](https://developer.android.com/reference/android/util/SparseArray)는 `SparseArray`가 더 적은 메모리를 사용하고
 [auto-boxing](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html)을 피할 수 있으므로 성능이 좋아진다고 말한다.
 
-대신 구현의 특성 상 많은 수의 데이터를 저장하는 경우에는 적합하지 않으며, 수백개 정도의 item 을 저장하는 경우 성능 차이가 50% 미만이라고 쓰여져 있다.
+대신 구현의 특성 상 많은 수의 데이터를 저장하는 경우에는 적합하지 않으며, 수백 개 정도의 item 을 저장하는 경우 성능 차이가 50% 미만이라고 쓰여져 있다.
 
 ## SparseArray 구현
 
@@ -122,13 +122,13 @@ public void delete(int key) {
 
 나중에 이렇게 표시한 곳에 새 데이터를 추가할 일이 있으면 Array copy 없이 바로 값을 할당할 수 있으므로,
 
-이 경우에는 시간 복잡도가 O(log n)이 된다.
+이 경우 시간 복잡도가 O(log n)이 된다.
 
-`DELETED`를 이용한 성능 계선에 대해 더 구체적으로 알고 싶다면 소스에서 `gc()`(private 메소드임) 등의 메소드를 더 찾아보면 쉽게 이해할 수 있다.
+`DELETED`를 이용한 성능 계선에 대해 더 구체적으로 알고 싶다면 소스에서 `gc()`(private 메소드임) 등의 메소드를 더 찾아보면 된다.
 
 ## 메모리 사용 비교
 
-참고: [Exploring Java's Hidden Costs](https://academy.realm.io/posts/360andev-jake-wharton-java-hidden-costs-android/)
+메모리 사용에 관한 내용은 [Exploring Java's Hidden Costs](https://academy.realm.io/posts/360andev-jake-wharton-java-hidden-costs-android/)를 참고하여 요약하였다.
 
 ```
 HashMap<K, V>                ArrayMap<K, V>
@@ -140,8 +140,9 @@ HashMap<Integer, Long>       SparseLongArray
 HashMap<Long, V>             LongSparseArray<V>
 ```
 
+### HashMap 메모리 사용량
 
-요약 하면, 데이터과 무관하게 `HashMap` 자체가 48바이트를 사용하고,
+아이템의 수에 관계없이 `HashMap` 자체가 48바이트를 사용한다.
 
 `HashMap`은 내부적으로 [load factor](https://en.wikipedia.org/wiki/Hash_table#Key_statistics) 를 가지는데
 
@@ -163,6 +164,8 @@ static final float DEFAULT_LOAD_FACTOR = 0.75f;
 
 약 1/4 만큼의 여유 공간을 추가로 요구한다.
 
+
+### SparseArray 메모리 사용량
 
 한편, `SparseArray`는 아이템을 위한 공간을 제외한 객체의 크기는 32바이트를 차지하고,
 
@@ -194,14 +197,12 @@ HashMap<Integer, V>
 
 `SparseArray`는 각각 O(n), O(log n), O(log n) 으로 시간 복잡도 측면에서 성능은 다소 더 떨어지는 것으로 보인다.
 
-하지만 수백 개 미만의 적은 item 을 사용하는 경우 n 이 작으므로 auto-boxing 과 hash 함수를 수행하는 등의 연산과 비교하면
+하지만 수백 개 미만의 적은 item 을 사용하는 경우 n 이 작으므로 바이너리 서치는 상수시간에 수렴하고,
 
-그렇게 많은 성능 차이가 나지 않을 수 있다.
-
+auto-boxing 과 hash 함수를 수행하는 등의 연산과 비교하면 더 좋은 성능을 낼 수 있다.
 
 물론, `SparseArray`가 아낄 수 있는 메모리의 양도 어차피 item 의 개수가 적은 경우 그 영향이 작아질 수밖에 없는데
 
 그런 면에서 굳이 이정도까지 메모리 최적화를 해야하는가라는 의문이 들기도 한다.
 
 결국 사용자의 판단과 경험에따라 어떤 자료구조를 사용할 지 결정될 것이다.
-
