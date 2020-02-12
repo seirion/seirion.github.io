@@ -39,7 +39,7 @@ CompletableFuture
         throw NullPointerException("")
     }
     .exceptionally {
-        return if (it.cuase is NullPointerException) {
+        if (it.cuase is NullPointerException) {
             return@exceptionally 0
         } else {
             throw it.cause
