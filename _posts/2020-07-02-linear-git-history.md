@@ -29,7 +29,8 @@ github 에 `Rebase and merge` 옵션이 이미 추가되었습니다.
 
 https://github.blog/2016-09-26-rebase-and-merge-pull-requests/
 
- 
+![](https://github.blog/wp-content/uploads/2016/09/3b06b4ee-81b1-11e6-96f8-f7b34eb30b05.png?w=1556)
+
 
 ## 장점
 
