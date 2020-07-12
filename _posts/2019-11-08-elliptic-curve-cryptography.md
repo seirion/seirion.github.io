@@ -151,7 +151,7 @@ private fun addDifferentPoints(other: Point): Point {
 ### sign algorithm
 
 ```
-uG + vP = kG
+uG + vP = kG       // P 는 public key, 즉, eG = P
 vP = (k - u)G
 P = ((k-u)/v)G
 ```
