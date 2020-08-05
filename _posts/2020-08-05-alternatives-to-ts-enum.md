@@ -27,10 +27,10 @@ const d3: DIRECTIONS =  // Autocompletes: "UP", "DOWN"
 ```
 
 The solution relies on the following advanced TS features:
-* const assertions to not lose the information about the specific strings in the object.
-* typeof to get the type of a variable
-* keyof to get a union type for the keys of the object.
+* `const` assertions to not lose the information about the specific strings in the object.
+* `typeof` to get the type of a variable
+* `keyof` to get a union type for the keys of the object.
 * union types
 * lookup types to index into an object type
-* The distributivity of union types: ObjType["A" | "B"] is the same as ObjType["A"] | ObjType["B"]
+* The distributivity of union types: `ObjType["A" | "B"]` is the same as `ObjType["A"] | ObjType["B"]`
 * the trick that a type aliases and constants live in separate worlds, so can have the same spelling.
