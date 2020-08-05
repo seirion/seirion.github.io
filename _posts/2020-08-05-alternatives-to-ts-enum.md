@@ -5,7 +5,7 @@ comments: true
 date:   2020-08-05 14:23:00
 ---
 
-`enum`이 쓰레기란 말을 [어디서](https://blog.logrocket.com/why-typescript-enums-suck/) 듣고 와서, 대안을 찾아 보았다.
+[Typescript](https://www.typescriptlang.org/) [`enum`](https://www.typescriptlang.org/docs/handbook/enums.html#enums)이 쓰레기란 말을 [어디서](https://blog.logrocket.com/why-typescript-enums-suck/) 듣고 와서, 대안을 찾아 보았다.
 
 [이곳](https://medium.com/@maxheiber/alternatives-to-typescript-enums-50e4c16600b1)에서 일부 발췌
 
